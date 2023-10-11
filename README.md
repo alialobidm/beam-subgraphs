@@ -29,11 +29,13 @@ All subgraph packages in this monorepo share the following commands to facilitat
 To execute any command for a specific subgraph, use `yarn workspace <packageName> <command>`, e.g.:
 
 ```bash
+# testnet, step by step
 yarn workspace blocks codegen:test
 yarn workspace blocks build:test
 yarn workspace blocks index:test
 yarn workspace blocks deploy:test
 
+# mainnet, using shortcut
 yarn workspace uniswap-v2 all
 ```
 
@@ -42,8 +44,9 @@ yarn workspace uniswap-v2 all
 To customize any of these subgraphs for other networks, check the following for your package:
 
 - add your network and contract setup in `networks.json`
-- update node urls and network names in the commands in `package.json > scripts`
-- for `uniswap-v2` only: see `./src/configs/config.ts` for all necessary parameters
+  - packages using older versions of graph-cli may have separate `network.[networkName].json` files
+- update node urls and network names in the commands in `package.json > scripts` (we recommend to introduce your own commands, e.g. `build:myNetwork`)
+- for `uniswap-v2` only: see `./src/configs/*` for all necessary parameters
 
 ## Running a _graph-node_ in Docker
 
@@ -53,7 +56,7 @@ To customize any of these subgraphs for other networks, check the following for 
   - `git clone --depth=1 https://github.com/graphprotocol/graph-node.git`
 - update `docker-compose.yml` in `./graph-node/docker` (see also [docs](https://github.com/graphprotocol/graph-node/blob/master/docker/README.md))
   - change `graph-node > environments > ethereum` to look like this: `<network name>:<rpc url>`, e.g. `beam:https://myArchiveRpc.foo`
-  - update `postgress_pass` and `POSTGRES_PASSWORD` to not use the default password
+  - update `postgress_pass` and `POSTGRES_PASSWORD` to _not_ use the default password
 - create a **systemd** service to run the docker containers automatically
   - create `thegraph.service` in `/etc/systemd/system` like below. Update `User` and `WorkingDirectory` to match your setup
 
@@ -90,4 +93,4 @@ sudo systemctl status thegraph
 - an _archive node_ is required to run the graph-node
 - do not run service as root/superuser
 - exposed [admin endpoints](https://thegraph.com/docs/en/operating-graph-node/#ports) should be protected
-- SSL needs to be set up
+- SSL needs to be set up (e.g. via nginx reverse proxy + certbot)
