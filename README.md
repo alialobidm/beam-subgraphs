@@ -14,7 +14,7 @@ Included subgraphs:
 
 The default network names used in this repo are `beam` and `beamtest`. Your target [graph-node](https://github.com/graphprotocol/graph-node)'s config must match one of these values.
 
-You don't need to install [graph-cli](https://github.com/graphprotocol/graph-tooling/blob/main/packages/cli/README.md), since every package comes with it's own particular version to use. If you'd need it nevertheless, add it using `yarn global add @graphprotocol/graph-cli`.
+You don't need to install [graph-cli](https://github.com/graphprotocol/graph-tooling/blob/main/packages/cli/README.md), since every subgraph package comes with it's own particular version to use, depending on the version it's code was written for. If you'd need it nevertheless, install it using `yarn global add @graphprotocol/graph-cli`.
 
 ## CLI
 
@@ -52,7 +52,8 @@ To customize any of these subgraphs for other networks, check the following for 
 - clone [graph-node](https://github.com/graphprotocol/graph-node)
   - `git clone --depth=1 https://github.com/graphprotocol/graph-node.git`
 - update `docker-compose.yml` in `./graph-node/docker` (see also [docs](https://github.com/graphprotocol/graph-node/blob/master/docker/README.md))
-  - change the `ethereum` parameter in `graph-node > environments` to look like this: `<network name>:<rpc url>`, e.g. `beam:https://myArchiveRpc.foo`
+  - change `graph-node > environments > ethereum` to look like this: `<network name>:<rpc url>`, e.g. `beam:https://myArchiveRpc.foo`
+  - update `postgress_pass` and `POSTGRES_PASSWORD` to not use the default password
 - create a **systemd** service to run the docker containers automatically
   - create `thegraph.service` in `/etc/systemd/system` like below. Update `User` and `WorkingDirectory` to match your setup
 
