@@ -20,8 +20,8 @@ The default network names used in this repo are `beam` and `beamtest`. Your targ
 All subgraph packages in this monorepo share the following commands to facilitate the development workflow (the extension `-test` refers to using Beam testnet):
 
 - `codegen`: generate types from ABIs and GraphQL schema
-- `build[-test]`: build TS into WASM
-- `create[-test]`: create a subgraph on the [graph-node](https://github.com/graphprotocol/graph-node)
+- `build[-test]`: build TS into WASM and compile subgraph
+- `create[-test]`: create a subgraph on the graph-node
 - `deploy[-test]`: deploy the subgraph to the graph-node
 - `all[-test]`: all of the above in sequence
 
@@ -33,13 +33,58 @@ yarn workspace blocks build-test
 yarn workspace blocks create-test
 yarn workspace blocks deploy-test
 
-yarn workspace uniswap-v2 all-test
+yarn workspace uniswap-v2 all
 ```
 
-## Customization
+## Subgraph customization
 
 To customize any of these subgraphs for other networks, check the following for your package:
 
 - add your network and contract setup in `networks.json`
 - update node urls and network names in the commands in `package.json > scripts`
 - for `uniswap-v2` only: see `./src/configs/config.ts` for all necessary parameters
+
+## Running a [graph-node](https://github.com/graphprotocol/graph-node) in Docker
+
+- set up a VPS, install `git`, `docker`, `docker-compose`
+  - e.g. via `sudo apt install git docker docker-compose`
+- clone [graph-node](https://github.com/graphprotocol/graph-node)
+  - `git clone --depth=1 https://github.com/graphprotocol/graph-node.git graph-node`
+- update `docker-compose.yml` in `./graph-node/docker` (see also [docs](https://github.com/graphprotocol/graph-node/blob/master/docker/README.md))
+  - change the ethereum parameter in `graph-node > environments` to look like this: `<network name>:<rpc url>`, e.g. `beamtest:http://myrpc.foo`
+- create a **systemd** service to run the docker containers automatically
+  - create `thegraph.service` in `/etc/systemd/system` like below. Update `User` and `WorkingDirectory` to match your setup
+
+```
+[Unit]
+Description=thegraph
+Requires=docker.service
+After=docker.service
+[Service]
+Restart=always
+User=root
+Group=docker
+WorkingDirectory=/root/graph-node/docker
+ExecStartPre=/usr/bin/docker-compose -f docker-compose.yml down
+ExecStart=/usr/bin/docker-compose -f docker-compose.yml up
+ExecStop=/usr/bin/docker-compose -f docker-compose.yml down
+[Install]
+WantedBy=multi-user.target
+```
+
+- enable and run services
+
+```bash
+sudo systemctl enable docker
+sudo systemctl start docker
+
+sudo systemctl enable thegraph
+sudo systemctl start thegraph
+sudo systemctl status thegraph
+```
+
+### Considerations
+
+- do not run service as root/superuser
+- exposed [admin endpoints](https://thegraph.com/docs/en/operating-graph-node/#ports) should be protected
+- https needs to be set up
