@@ -22,7 +22,7 @@ All subgraph packages in this monorepo share the following commands to facilitat
 
 - `codegen[:test]`: generate types from ABIs and GraphQL schema
 - `build[:test]`: build TS into WASM and compile subgraph
-- `create[:test]`: create a subgraph on the graph-node
+- `index[:test]`: create a subgraph on the graph-node (not using `create` here to avoid clash with `yarn create`)
 - `deploy[:test]`: deploy the subgraph to the graph-node
 - `all[:test]`: all of the above in sequence
 
@@ -31,7 +31,7 @@ To execute any command for a specific subgraph, use `yarn workspace <packageName
 ```bash
 yarn workspace blocks codegen:test
 yarn workspace blocks build:test
-yarn workspace blocks create:test
+yarn workspace blocks index:test
 yarn workspace blocks deploy:test
 
 yarn workspace uniswap-v2 all

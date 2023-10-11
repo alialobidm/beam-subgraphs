@@ -37,7 +37,8 @@ dataSources:
 templates:
   - kind: ethereum/contract
     name: Pair
-    network: beam
+    # prettier-ignore
+    network: {{ network }}
     source:
       abi: Pair
     mapping:
