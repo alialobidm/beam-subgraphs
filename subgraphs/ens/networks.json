@@ -1,43 +1,59 @@
 {
   "beam": {
     "ENSRegistry": {
-      "address": "0x000000000000000000000000000000000000bEEF",
+      "address": "0x0000000000000000000000000000000000000001",
+      "startBlock": 1
+    },
+    "ENSRegistryOld": {
+      "address": "0x0000000000000000000000000000000000000B0b",
       "startBlock": 1
     },
     "Resolver": {
       "startBlock": 1
     },
     "BaseRegistrar": {
-      "address": "0x000000000000000000000000000000000000bEEF",
+      "address": "0x0000000000000000000000000000000000000001",
       "startBlock": 1
     },
     "EthRegistrarController": {
+      "address": "0x0000000000000000000000000000000000000001",
+      "startBlock": 1
+    },
+    "EthRegistrarControllerOld": {
       "address": "0x000000000000000000000000000000000000bEEF",
       "startBlock": 1
     },
     "NameWrapper": {
-      "address": "0x000000000000000000000000000000000000bEEF",
+      "address": "0x0000000000000000000000000000000000000001",
       "startBlock": 1
     }
   },
   "beamtest": {
     "ENSRegistry": {
-      "address": "0x000000000000000000000000000000000000bEEF",
+      "address": "0x0000000000000000000000000000000000000001",
+      "startBlock": 1
+    },
+    "ENSRegistryOld": {
+      "address": "0x0000000000000000000000000000000000000B0b",
       "startBlock": 1
     },
     "Resolver": {
       "startBlock": 1
     },
     "BaseRegistrar": {
-      "address": "0x000000000000000000000000000000000000bEEF",
+      "address": "0x0000000000000000000000000000000000000001",
       "startBlock": 1
     },
     "EthRegistrarController": {
+      "address": "0x0000000000000000000000000000000000000001",
+      "startBlock": 1
+    },
+    "EthRegistrarControllerOld": {
       "address": "0x000000000000000000000000000000000000bEEF",
       "startBlock": 1
     },
     "NameWrapper": {
-      "address": "0x000000000000000000000000000000000000bEEF",
+      "address": "0x0000000000000000000000000000000000000001",
       "startBlock": 1
     }
   },
