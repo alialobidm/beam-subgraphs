@@ -5,16 +5,18 @@
   "license": "GPL-3.0-or-later",
   "scripts": {
     "all": "yarn codegen && yarn build && yarn create && yarn deploy",
-    "all-test": "yarn codegen && yarn build-test && yarn create-test && yarn deploy-test",
-    "codegen": "graph codegen --output-dir src/types/",
-    "build": "graph build --network beam",
-    "create": "graph create beamswap --node http://161.35.246.70:8020",
-    "deploy": "graph deploy beamswap --node http://161.35.246.70:8020 --ipfs http://161.35.246.70:5001 --network beam",
-    "build-test": "yarn cfg-test; graph build --network beamtest; yarn cfg-test-end",
-    "create-test": "graph create beamswap --node http://161.35.246.70:8020 --network beamtest",
-    "deploy-test": "yarn cfg-test; graph deploy beamswap --node http://161.35.246.70:8020 --ipfs http://161.35.246.70:5001 --network beamtest; yarn cfg-test-end",
-    "cfg-test": "mv ./src/configs/config.ts ./src/configs/config.prd.ts && mv ./src/configs/config.beamtest.ts ./src/configs/config.ts",
-    "cfg-test-end": "mv ./src/configs/config.ts ./src/configs/config.beamtest.ts && mv ./src/configs/config.prd.ts ./src/configs/config.ts"
+    "all:test": "yarn codegen:test && yarn build:test && yarn create:test && yarn deploy:test",
+    "codegen": "yarn prepare:main; graph codegen --output-dir src/types/",
+    "build": "yarn prepare:main; graph build",
+    "create": "yarn prepare:main; graph create beamswap --node http://161.35.246.70:8020",
+    "deploy": "yarn prepare:main; graph deploy beamswap --node http://161.35.246.70:8020 --ipfs http://161.35.246.70:5001",
+    "codegen:test": "yarn prepare:test; graph codegen --output-dir src/types/; yarn prepare:test-end",
+    "build:test": "yarn prepare:test; graph build; yarn prepare:test-end",
+    "create:test": "yarn prepare:test; graph create beamswap --node http://161.35.246.70:8120; yarn prepare:test-end",
+    "deploy:test": "yarn prepare:test; graph deploy beamswap --node http://161.35.246.70:8120 --ipfs http://161.35.246.70:5101; yarn prepare:test-end",
+    "prepare:main": "mustache network.beam.json subgraph.template.yaml > subgraph.yaml",
+    "prepare:test": "mustache network.beamtest.json subgraph.template.yaml > subgraph.yaml && mv ./src/configs/config.ts ./src/configs/config.prd.ts && mv ./src/configs/config.beamtest.ts ./src/configs/config.ts",
+    "prepare:test-end": "mv ./src/configs/config.ts ./src/configs/config.beamtest.ts && mv ./src/configs/config.prd.ts ./src/configs/config.ts"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.20.0",
@@ -24,6 +26,7 @@
     "@typescript-eslint/parser": "^2.0.0",
     "eslint": "^6.2.2",
     "eslint-config-prettier": "^6.1.0",
+    "mustache": "^4.2.0",
     "prettier": "^1.18.2",
     "typescript": "^3.5.2"
   }

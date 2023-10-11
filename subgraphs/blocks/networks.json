@@ -1,12 +1,14 @@
 {
   "beam": {
     "ConverterRegistryContract": {
-      "address": "0x000000000000000000000000000000000000bEEF"
+      "address": "0x000000000000000000000000000000000000bEEF",
+      "startBlock": 1
     }
   },
   "beamtest": {
     "ConverterRegistryContract": {
-      "address": "0x000000000000000000000000000000000000bEEF"
+      "address": "0x000000000000000000000000000000000000bEEF",
+      "startBlock": 1
     }
   }
 }

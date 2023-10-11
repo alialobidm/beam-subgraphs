@@ -8,8 +8,8 @@ dataSources:
     name: ConverterRegistryContract
     network: beam
     source:
-      address: '0x000000000000000000000000000000000000bEEF'
       abi: ConverterRegistryContract
+      address: "0x000000000000000000000000000000000000bEEF"
       startBlock: 1
     mapping:
       kind: ethereum/events

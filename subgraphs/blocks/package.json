@@ -5,18 +5,20 @@
   "license": "GPL-3.0-or-later",
   "scripts": {
     "all": "yarn codegen && yarn build && yarn create && yarn deploy",
-    "all-test": "yarn codegen && yarn build-test && yarn create-test && yarn deploy-test",
+    "all:test": "yarn codegen:test && yarn build:test && yarn create:test && yarn deploy:test",
     "codegen": "graph codegen --output-dir src/types/",
     "build": "graph build  --network beam",
     "create": "graph create blocks --node http://161.35.246.70:8020",
     "deploy": "graph deploy blocks --node http://161.35.246.70:8020 --ipfs http://161.35.246.70:5001 --network beam",
-    "build-test": "graph build --network beamtest",
-    "create-test": "graph create blocks --node http://161.35.246.70:8020",
-    "deploy-test": "graph deploy blocks --node http://161.35.246.70:8020 --ipfs http://161.35.246.70:5001 --network beamtest"
+    "codegen:test": "yarn codegen",
+    "build:test": "graph build --network beamtest",
+    "create:test": "graph create blocks --node http://161.35.246.70:8120",
+    "deploy:test": "graph deploy blocks --node http://161.35.246.70:8120 --ipfs http://161.35.246.70:5101 --network beamtest"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.51.1",
     "@graphprotocol/graph-ts": "^0.31.0",
+    "@types/node": "^20.8.4",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
     "eslint": "^6.2.2",
