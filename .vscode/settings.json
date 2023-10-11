@@ -7,5 +7,6 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "json.format.enable": true,
   "editor.formatOnSave": true,
-  "python.formatting.provider": "black"
+  "python.formatting.provider": "black",
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

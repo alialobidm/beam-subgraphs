@@ -6,6 +6,7 @@ Included subgraphs:
 
 - `blocks` - forked from [blocklytics/ethereum-blocks](https://github.com/blocklytics/ethereum-blocks)
 - `uniswap-v2` - forked from [uniswap/v2-subgraph](https://github.com/uniswap/v2-subgraph)
+- `ens` - forked from [ensdomains/ens-subgraph](https://github.com/ensdomains/ens-subgraph)
 
 ## Getting started
 
