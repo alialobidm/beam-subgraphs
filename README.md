@@ -14,11 +14,11 @@ Included subgraphs:
 
 The default network names used in this repo are `beam` and `beamtest`. Your target [graph-node](https://github.com/graphprotocol/graph-node)'s config must match one of these values.
 
-You don't need to install [graph-cli](https://github.com/graphprotocol/graph-tooling/blob/main/packages/cli/README.md), since every subgraph package comes with it's own particular version to use, depending on the version it's code was written for. If you'd need it nevertheless, install it using `yarn global add @graphprotocol/graph-cli`.
+You don't need to install [graph-cli](https://github.com/graphprotocol/graph-tooling/blob/main/packages/cli/README.md), since every subgraph package comes with it's own particular setup to use, depending on the version its code was written for. If you'd need it nevertheless, install it using `yarn global add @graphprotocol/graph-cli`.
 
 ## CLI
 
-All subgraph packages in this monorepo share the following commands to facilitate the development workflow (the extension `-test` refers to using Beam testnet):
+All subgraph packages in this monorepo share the following commands to facilitate the development workflow (the extension `:test` refers to using Beam testnet):
 
 - `codegen[:test]`: generate types from ABIs and GraphQL schema
 - `build[:test]`: build TS into WASM and compile subgraph
