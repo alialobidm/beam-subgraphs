@@ -13,7 +13,7 @@ Included subgraphs:
 - install Node.js >=16 and yarn >=1.22
 - run `yarn` from the repository _root_ to install dependencies
 
-The default network names used in this repo are `beam` and `beamtest`. Your target [graph-node](https://github.com/graphprotocol/graph-node)'s config must match one of these values.
+The default network names used in this repo are `beam` and `beamtest`. Your target [graph-node](https://github.com/graphprotocol/graph-node)'s config must match one of these values. You can find instructions on how to [set up your graph-node with Beam](#running-a-graph-node-in-docker) below.
 
 You don't need to install [graph-cli](https://github.com/graphprotocol/graph-tooling/blob/main/packages/cli/README.md), since every subgraph package comes with it's own particular setup to use, depending on the version its code was written for. If you'd need it nevertheless, install it using `yarn global add @graphprotocol/graph-cli`.
 
@@ -59,7 +59,13 @@ To customize any of these subgraphs for other networks, check the following for 
   - change `graph-node > environments > ethereum` to look like this: `<network name>:<rpc url>`, e.g. `beam:https://myArchiveRpc.foo`
   - update `postgress_pass` and `POSTGRES_PASSWORD` to _not_ use the default password
 - create a **systemd** service to run the docker containers automatically
-  - create `graph.service` in `/etc/systemd/system` like below. Update `User` and `WorkingDirectory` to match your setup
+  - create `/etc/systemd/system/graph.service` like below. Update `User` and `WorkingDirectory` to match your setup.
+
+```
+sudo nano /etc/systemd/system/graph.service
+```
+
+then
 
 ```
 [Unit]
@@ -81,7 +87,6 @@ WantedBy=multi-user.target
 - enable and run services
 
 ```bash
-sudo systemctl enable docker
 sudo systemctl start docker
 
 sudo systemctl enable graph
