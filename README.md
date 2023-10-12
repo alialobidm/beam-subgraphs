@@ -59,13 +59,8 @@ To customize any of these subgraphs for other networks, check the following for 
   - change `graph-node > environments > ethereum` to look like this: `<network name>:<rpc url>`, e.g. `beam:https://myArchiveRpc.foo`
   - update `postgress_pass` and `POSTGRES_PASSWORD` to _not_ use the default password
 - create a **systemd** service to run the docker containers automatically
-  - create `/etc/systemd/system/graph.service` like below. Update `User` and `WorkingDirectory` to match your setup.
-
-```
-sudo nano /etc/systemd/system/graph.service
-```
-
-then
+  - create `/etc/systemd/system/graph.service`, e.g. by running `sudo nano /etc/systemd/system/graph.service` and pasting the contents below from the clipboard
+  - update `User` and `WorkingDirectory` to match your setup
 
 ```
 [Unit]
@@ -91,6 +86,7 @@ sudo systemctl start docker
 
 sudo systemctl enable graph
 sudo systemctl start graph
+
 sudo systemctl status graph
 ```
 
