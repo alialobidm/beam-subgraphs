@@ -7,13 +7,13 @@
     "all": "yarn codegen && yarn build && yarn index && yarn deploy",
     "codegen": "graph codegen --output-dir src/types/",
     "build": "graph build --network beam",
-    "index": "graph create blocks --node http://161.35.246.70:8020",
-    "deploy": "graph deploy blocks --node http://161.35.246.70:8020 --ipfs http://161.35.246.70:5001 --network beam",
+    "index": "graph create blocks --node http://134.209.137.164:8020",
+    "deploy": "graph deploy blocks --node http://134.209.137.164:8020 --ipfs http://134.209.137.164:5001 --network beam",
     "all:test": "yarn codegen:test && yarn build:test && yarn index:test && yarn deploy:test",
     "codegen:test": "yarn codegen",
     "build:test": "graph build --network beamtest",
-    "index:test": "graph create blocks --node http://161.35.246.70:8120",
-    "deploy:test": "graph deploy blocks --node http://161.35.246.70:8120 --ipfs http://161.35.246.70:5101 --network beamtest"
+    "index:test": "graph create blocks --node http://161.35.246.70:8020",
+    "deploy:test": "graph deploy blocks --node http://161.35.246.70:8020 --ipfs http://161.35.246.70:5001 --network beamtest"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.51.1",
