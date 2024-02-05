@@ -10,12 +10,27 @@
     "build": "yarn prepare; graph build",
     "index": "yarn prepare; graph create beamswap --node http://134.209.137.164:8020",
     "deploy": "yarn prepare; graph deploy beamswap --node http://134.209.137.164:8020 --ipfs http://134.209.137.164:5001",
+
     "all:test": "yarn codegen:test && yarn build:test && yarn index:test && yarn deploy:test",
     "prepare:test": "mustache network.beamtest.json subgraph.template.yaml > subgraph.yaml; rm -f ./src/configs/config.ts; cp ./src/configs/config.beamtest.ts ./src/configs/config.ts",
     "codegen:test": "yarn prepare:test; graph codegen --output-dir src/types/",
     "build:test": "yarn prepare:test; graph build",
     "index:test": "yarn prepare:test; graph create beamswap --node http://161.35.246.70:8020",
-    "deploy:test": "yarn prepare:test; graph deploy beamswap --node http://161.35.246.70:8020 --ipfs http://161.35.246.70:5001"
+    "deploy:test": "yarn prepare:test; graph deploy beamswap --node http://161.35.246.70:8020 --ipfs http://161.35.246.70:5001",
+
+    "all:zkevm": "yarn codegen:zkevm && yarn build:zkevm && yarn index:zkevm && yarn deploy:zkevm",
+    "prepare:zkevm": "mustache network.zkevm.json subgraph.template.yaml > subgraph.yaml; rm -f ./src/configs/config.ts; cp ./src/configs/config.zkevm.ts ./src/configs/config.ts",
+    "codegen:zkevm": "yarn prepare:zkevm; graph codegen --output-dir src/types/",
+    "build:zkevm": "yarn prepare:zkevm; graph build",
+    "index:zkevm": "yarn prepare:zkevm; graph create beamswap --node http://TODO_ZKEVMMAIN:8020",
+    "deploy:zkevm": "yarn prepare:zkevm; graph deploy beamswap --node http://TODO_ZKEVMMAIN:8020 --ipfs http://TODO_ZKEVMMAIN:5001",
+
+    "all:zkevm:test": "yarn codegen:zkevm:test && yarn build:zkevm:test && yarn index:zkevm:test && yarn deploy:zkevm:test",
+    "prepare:zkevm:test": "mustache network.zkevmtest.json subgraph.template.yaml > subgraph.yaml; rm -f ./src/configs/config.ts; cp ./src/configs/config.zkevmtest.ts ./src/configs/config.ts",
+    "codegen:zkevm:test": "yarn prepare:zkevm:test; graph codegen --output-dir src/types/",
+    "build:zkevm:test": "yarn prepare:zkevm:test; graph build",
+    "index:zkevm:test": "yarn prepare:zkevm:test; graph create beamswap --node http://TODO_ZKEVMTEST:8020",
+    "deploy:zkevm:test": "yarn prepare:zkevm:test; graph deploy beamswap --node http://TODO_ZKEVMTEST:8020 --ipfs http://TODO_ZKEVMTEST:5001"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.20.0",

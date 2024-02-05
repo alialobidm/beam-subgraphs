@@ -10,5 +10,17 @@
       "address": "0x000000000000000000000000000000000000bEEF",
       "startBlock": 1
     }
+  },
+  "zkevm": {
+    "ConverterRegistryContract": {
+      "address": "0x000000000000000000000000000000000000bEEF",
+      "startBlock": 1
+    }
+  },
+  "zkevmtest": {
+    "ConverterRegistryContract": {
+      "address": "0x000000000000000000000000000000000000bEEF",
+      "startBlock": 1
+    }
   }
 }
