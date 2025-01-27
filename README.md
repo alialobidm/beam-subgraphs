@@ -13,7 +13,7 @@ Included subgraphs:
 - install Node.js >=16 and yarn >=1.22
 - run `yarn` from the repository _root_ to install dependencies
 
-The default network names used in this repo are `beam` and `beamtest`. Your target [graph-node](https://github.com/graphprotocol/graph-node)'s config must match one of these values. You can find instructions on how to [set up your graph-node with Beam](#running-a-graph-node-in-docker) below.
+The default network names used in this repo are `beam` and `beam-testnet`. Your target [graph-node](https://github.com/graphprotocol/graph-node)'s config must match one of these values. You can find instructions on how to [set up your graph-node with Beam](#running-a-graph-node-in-docker) below.
 
 You don't need to install [graph-cli](https://github.com/graphprotocol/graph-tooling/blob/main/packages/cli/README.md), since every subgraph package comes with it's own particular setup to use, depending on the version its code was written for. If you'd need it nevertheless, install it using `yarn global add @graphprotocol/graph-cli`.
 

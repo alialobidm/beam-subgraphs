@@ -28,7 +28,7 @@
       "startBlock": 1
     }
   },
-  "beamtest": {
+  "beam-testnet": {
     "ENSRegistry": {
       "address": "0x0000000000000000000000000000000000000001",
       "startBlock": 1

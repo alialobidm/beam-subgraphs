@@ -5,7 +5,7 @@
       "startBlock": 1
     }
   },
-  "beamtest": {
+  "beam-testnet": {
     "ConverterRegistryContract": {
       "address": "0x000000000000000000000000000000000000bEEF",
       "startBlock": 1
