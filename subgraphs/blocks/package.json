@@ -13,17 +13,7 @@
     "codegen:test": "yarn codegen",
     "build:test": "graph build --network beam-testnet",
     "index:test": "graph create blocks --node http://161.35.246.70:8020",
-    "deploy:test": "graph deploy blocks --node http://161.35.246.70:8020 --ipfs http://161.35.246.70:5001 --network beam-testnet",
-    "all:zkevm": "yarn codegen:zkevm && yarn build:zkevm && yarn index:zkevm && yarn deploy:zkevm",
-    "codegen:zkevm": "yarn codegen",
-    "build:zkevm": "graph build --network zkevm",
-    "index:zkevm": "graph create blocks --node http://TODO_ZKEVMMAIN:8020",
-    "deploy:zkevm": "graph deploy blocks --node http://TODO_ZKEVMMAIN:8020 --ipfs http://TODO_ZKEVMMAIN:5001 --network zkevm",
-    "all:zkevm:test": "yarn codegen:zkevm:test && yarn build:zkevm:test && yarn index:zkevm:test && yarn deploy:zkevm:test",
-    "codegen:zkevm:test": "yarn codegen",
-    "build:zkevm:test": "graph build --network zkevmtest",
-    "index:zkevm:test": "graph create blocks --node http://TODO_ZKEVMTEST:8020",
-    "deploy:zkevm:test": "graph deploy blocks --node http://TODO_ZKEVMTEST:8020 --ipfs http://TODO_ZKEVMTEST:5001 --network zkevmtest"
+    "deploy:test": "graph deploy blocks --node http://161.35.246.70:8020 --ipfs http://161.35.246.70:5001 --network beam-testnet"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.51.1",
