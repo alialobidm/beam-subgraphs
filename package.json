@@ -3,7 +3,11 @@
   "private": true,
   "version": "1.0.0",
   "description": "Monorepo for subgraphs configured for Beam network",
-  "scripts": {},
+  "scripts": {
+    "blocks": "yarn workspace blocks",
+    "uniswap-v2": "yarn workspace uniswap-v2",
+    "ens": "yarn workspace ens"
+  },
   "author": "xtools-at <https://github.com/xtools-at>",
   "license": "GPL-3.0-or-later",
   "workspaces": [
@@ -12,5 +16,9 @@
   "devDependencies": {
     "eslint": "^8.48.0",
     "prettier": "^3.0.3"
+  },
+  "engines": {
+    "node": ">=20",
+    "yarn": ">=1.22.0"
   }
 }
