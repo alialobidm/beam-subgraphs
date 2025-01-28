@@ -27,17 +27,17 @@ All subgraph packages in this monorepo share the following commands to facilitat
 - `deploy[:test]`: deploy the subgraph to the graph-node
 - `all[:test]`: all of the above in sequence
 
-To execute any command for a specific subgraph, use `yarn workspace <packageName> <command>`, e.g.:
+To execute any command for a specific subgraph, use `yarn <subfolder> <command>`, e.g.:
 
 ```bash
 # testnet, step by step
-yarn workspace blocks codegen:test
-yarn workspace blocks build:test
-yarn workspace blocks index:test
-yarn workspace blocks deploy:test
+yarn blocks codegen:test
+yarn blocks build:test
+yarn blocks index:test
+yarn blocks deploy:test
 
 # mainnet, using shortcut
-yarn workspace uniswap-v2 all
+yarn uniswap-v2 all
 ```
 
 ## Subgraph customization

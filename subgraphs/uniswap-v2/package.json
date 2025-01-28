@@ -1,5 +1,5 @@
 {
-  "name": "uniswap-v2",
+  "name": "@beam/subgraph-uniswap-v2",
   "private": true,
   "version": "1.0.0",
   "license": "GPL-3.0-or-later",
@@ -8,14 +8,14 @@
     "prepare": "mustache network.beam.json subgraph.template.yaml > subgraph.yaml; rm -f ./src/configs/config.ts; cp ./src/configs/config.beam.ts ./src/configs/config.ts",
     "codegen": "yarn prepare; graph codegen --output-dir src/types/",
     "build": "yarn prepare; graph build",
-    "index": "yarn prepare; graph create beamswap --node http://134.209.137.164:8020",
-    "deploy": "yarn prepare; graph deploy beamswap --node http://134.209.137.164:8020 --ipfs http://134.209.137.164:5001",
+    "index": "yarn prepare; graph create beamswap --node http://GRAPH_NODE:8020",
+    "deploy": "yarn prepare; graph deploy beamswap --node http://GRAPH_NODE:8020 --ipfs https://ipfs.sphere.market",
     "all:test": "yarn codegen:test && yarn build:test && yarn index:test && yarn deploy:test",
     "prepare:test": "mustache network.beam-testnet.json subgraph.template.yaml > subgraph.yaml; rm -f ./src/configs/config.ts; cp ./src/configs/config.beam-testnet.ts ./src/configs/config.ts",
     "codegen:test": "yarn prepare:test; graph codegen --output-dir src/types/",
     "build:test": "yarn prepare:test; graph build",
-    "index:test": "yarn prepare:test; graph create beamswap --node http://161.35.246.70:8020",
-    "deploy:test": "yarn prepare:test; graph deploy beamswap --node http://161.35.246.70:8020 --ipfs http://161.35.246.70:5001"
+    "index:test": "yarn prepare:test; graph create beamswap --node http://GRAPH_NODE:8020",
+    "deploy:test": "yarn prepare:test; graph deploy beamswap --node http://GRAPH_NODE:8020 --ipfs https://ipfs.sphere.market"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.20.0",

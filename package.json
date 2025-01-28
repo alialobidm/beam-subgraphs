@@ -1,12 +1,12 @@
 {
-  "name": "beam-subgraphs",
+  "name": "@beam/subgraphs-monorepo",
   "private": true,
   "version": "1.0.0",
   "description": "Monorepo for subgraphs configured for Beam network",
   "scripts": {
-    "blocks": "yarn workspace blocks",
-    "uniswap-v2": "yarn workspace uniswap-v2",
-    "ens": "yarn workspace ens"
+    "blocks": "yarn workspace @beam/subgraph-blocks",
+    "uniswap-v2": "yarn workspace @beam/subgraph-uniswap-v2",
+    "ens": "yarn workspace @beam/subgraph-ens"
   },
   "author": "xtools-at <https://github.com/xtools-at>",
   "license": "GPL-3.0-or-later",
