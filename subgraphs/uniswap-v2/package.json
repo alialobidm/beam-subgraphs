@@ -14,8 +14,8 @@
     "prepare:test": "mustache network.beam-testnet.json subgraph.template.yaml > subgraph.yaml; rm -f ./src/configs/config.ts; cp ./src/configs/config.beam-testnet.ts ./src/configs/config.ts",
     "codegen:test": "yarn prepare:test; graph codegen --output-dir src/types/",
     "build:test": "yarn prepare:test; graph build",
-    "index:test": "yarn prepare:test; graph create beamswap --node http://GRAPH_NODE:8020",
-    "deploy:test": "yarn prepare:test; graph deploy beamswap --node http://GRAPH_NODE:8020 --ipfs https://ipfs.sphere.market"
+    "index:test": "yarn prepare:test; graph create beamswap-testnet --node http://GRAPH_NODE:8020",
+    "deploy:test": "yarn prepare:test; graph deploy beamswap-testnet --node http://GRAPH_NODE:8020 --ipfs https://ipfs.sphere.market"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.20.0",
