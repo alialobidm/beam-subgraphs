@@ -7,10 +7,11 @@ Included subgraphs:
 - `blocks` - forked from [blocklytics/ethereum-blocks](https://github.com/blocklytics/ethereum-blocks)
 - `uniswap-v2` - forked from [uniswap/v2-subgraph](https://github.com/uniswap/v2-subgraph)
 - `ens` - forked from [ensdomains/ens-subgraph](https://github.com/ensdomains/ens-subgraph)
+- `validator-manager` - subgraph for Beam proof of stake
 
 ## Getting started
 
-- install Node.js >=16 and yarn >=1.22
+- install Node.js >=20 and yarn >=1.22
 - run `yarn` from the repository _root_ to install dependencies
 
 The default network names used in this repo are `beam` and `beam-testnet`. Your target [graph-node](https://github.com/graphprotocol/graph-node)'s config must match one of these values. You can find instructions on how to [set up your graph-node with Beam](#running-a-graph-node-in-docker) below.
