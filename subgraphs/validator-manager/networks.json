@@ -1,0 +1,20 @@
+{
+  "beam": {
+    "ERC721TokenStakingManager": {
+      "address": "0x000000000000000000000000000000000000bEEF",
+      "startBlock": 1
+    }
+  },
+  "beam-testnet": {
+    "ERC721TokenStakingManager": {
+      "address": "0x000000000000000000000000000000000000bEEF",
+      "startBlock": 1
+    }
+  },
+  "sandbox": {
+    "ERC721TokenStakingManager": {
+      "address": "0x000000000000000000000000000000000000bEEF",
+      "startBlock": 1
+    }
+  }
+}

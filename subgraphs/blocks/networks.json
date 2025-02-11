@@ -22,5 +22,11 @@
       "address": "0x000000000000000000000000000000000000bEEF",
       "startBlock": 1
     }
+  },
+  "sandbox": {
+    "ConverterRegistryContract": {
+      "address": "0x000000000000000000000000000000000000bEEF",
+      "startBlock": 1
+    }
   }
 }

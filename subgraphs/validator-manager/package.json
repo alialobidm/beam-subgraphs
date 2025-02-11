@@ -1,11 +1,11 @@
 {
-  "name": "@beam/subgraph-blocks",
-  "private": true,
+  "name": "@beam/subgraph-validator-manager",
   "version": "1.0.0",
-  "license": "GPL-3.0-or-later",
+  "main": "index.js",
+  "license": "MIT",
   "scripts": {
     "all": "yarn codegen && yarn build && yarn index && yarn deploy",
-    "codegen": "graph codegen --output-dir src/types/",
+    "codegen": "graph codegen --output-dir generated/",
     "build": "graph build --network beam",
     "index": "graph create blocks --node http://GRAPH_NODE:8020",
     "deploy": "graph deploy blocks --node http://GRAPH_NODE:8020 --ipfs https://ipfs.sphere.market --network beam",
@@ -20,15 +20,9 @@
     "index:sandbox": "graph create blocks-sandbox --node http://161.35.246.70:8020",
     "deploy:sandbox": "graph deploy blocks-sandbox --node http://161.35.246.70:8020 --ipfs http://161.35.246.70:5001 --network sandbox"
   },
-  "devDependencies": {
-    "@graphprotocol/graph-cli": "^0.51.1",
-    "@graphprotocol/graph-ts": "^0.31.0",
-    "@types/node": "^20.8.4",
-    "@typescript-eslint/eslint-plugin": "^2.0.0",
-    "@typescript-eslint/parser": "^2.0.0",
-    "eslint": "^6.2.2",
-    "eslint-config-prettier": "^6.1.0",
-    "prettier": "^1.18.2",
-    "typescript": "^3.5.2"
-  }
+  "dependencies": {
+    "@graphprotocol/graph-cli": "^0.95.0",
+    "@graphprotocol/graph-ts": "^0.37.0"
+  },
+  "devDependencies": {}
 }
