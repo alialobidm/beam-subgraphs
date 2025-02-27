@@ -1,19 +1,31 @@
 {
   "beam": {
-    "ERC721TokenStakingManager": {
+    "Native721TokenStakingManager": {
       "address": "0x000000000000000000000000000000000000bEEF",
+      "startBlock": 1
+    },
+    "ValidatorManager": {
+      "address": "0xfacade0000000000000000000000000000000000",
       "startBlock": 1
     }
   },
   "beam-testnet": {
-    "ERC721TokenStakingManager": {
+    "Native721TokenStakingManager": {
       "address": "0x5dA022feB7b9f1f39e649CDed27090D00630a41D",
       "startBlock": 1186037
+    },
+    "ValidatorManager": {
+      "address": "0x33B9785E20ec582d5009965FB3346F1716e8A423",
+      "startBlock": 1186013
     }
   },
   "sandbox": {
-    "ERC721TokenStakingManager": {
-      "address": "0x000000000000000000000000000000000000bEEF",
+    "Native721TokenStakingManager": {
+      "address": "0x5aFf8556344baDbAF3a48a7e75eF89990b00a60e",
+      "startBlock": 1
+    },
+    "ValidatorManager": {
+      "address": "0xfacade0000000000000000000000000000000000",
       "startBlock": 1
     }
   }
