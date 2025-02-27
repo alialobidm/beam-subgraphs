@@ -7,8 +7,8 @@
   },
   "beam-testnet": {
     "ERC721TokenStakingManager": {
-      "address": "0x000000000000000000000000000000000000bEEF",
-      "startBlock": 1
+      "address": "0x5dA022feB7b9f1f39e649CDed27090D00630a41D",
+      "startBlock": 1186037
     }
   },
   "sandbox": {
