@@ -7,7 +7,8 @@
     "blocks": "yarn workspace @beam/subgraph-blocks",
     "uniswap-v2": "yarn workspace @beam/subgraph-uniswap-v2",
     "ens": "yarn workspace @beam/subgraph-ens",
-    "validator-manager": "yarn workspace @beam/subgraph-validator-manager"
+    "validator-manager": "yarn workspace @beam/subgraph-validator-manager",
+    "erc721": "yarn workspace @beam/subgraph-generic-erc721"
   },
   "author": "xtools-at <https://github.com/xtools-at>",
   "license": "GPL-3.0-or-later",

@@ -1,6 +1,6 @@
 import { log, BigInt } from '@graphprotocol/graph-ts';
-import { ERC721, Transfer as TransferEvent } from '../generated/ERC721/ERC721';
-import { Token, Owner, Contract, Transfer } from '../generated/schema';
+import { ERC721, Transfer as TransferEvent } from './types/ERC721/ERC721';
+import { Token, Owner, Contract, Transfer } from './types/schema';
 
 export function handleTransfer(event: TransferEvent): void {
   let previousOwner = Owner.load(event.params.from.toHexString());

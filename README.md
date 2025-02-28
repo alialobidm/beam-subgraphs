@@ -8,6 +8,7 @@ Included subgraphs:
 - `uniswap-v2` - forked from [uniswap/v2-subgraph](https://github.com/uniswap/v2-subgraph)
 - `ens` - forked from [ensdomains/ens-subgraph](https://github.com/ensdomains/ens-subgraph)
 - `validator-manager` - subgraph for Beam proof of stake
+- `erc721` - subgraph for generic NFT data
 
 ## Getting started
 
