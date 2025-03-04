@@ -19,6 +19,7 @@ enum DelegatorStatus {
 type Validation @entity {
     id: Bytes!
     nodeID: Bytes!
+    owner: Bytes!
     weight: BigInt!
     status: ValidatorStatus!
     startedAt: Timestamp
@@ -42,4 +43,21 @@ type UptimeUpdate @entity {
     validationID: Bytes!
     uptimeSeconds: BigInt!
     epoch: BigInt!
+}
+
+type RegisteredRewards @entity {
+    id: Bytes!
+    epoch: BigInt!
+    primary: Boolean!
+    tokens: [Bytes!]
+    amounts: [BigInt!]
+}
+
+type ClaimedRewards @entity {
+    id: Bytes!
+    epoch: BigInt!
+    primary: Boolean!
+    account: Bytes!
+    tokens: [Bytes!]
+    amounts: [BigInt!]
 }
