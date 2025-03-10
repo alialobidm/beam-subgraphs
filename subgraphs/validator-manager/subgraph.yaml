@@ -28,6 +28,8 @@ dataSources:
           handler: handleInitiatedValidatorRegistration
         - event: InitiatedValidatorRemoval(indexed bytes32,bytes32,uint64,uint64)
           handler: handleInitiatedValidatorRemoval
+        - event: RegisteredInitialValidator(indexed bytes32,indexed bytes20,uint64)
+          handler: handleRegisteredInitialValidator
         - event: CompletedValidatorRegistration(indexed bytes32,uint64)
           handler: handleCompletedValidatorRegistration
         - event: CompletedValidatorRemoval(indexed bytes32)

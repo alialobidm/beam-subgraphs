@@ -29,6 +29,7 @@ type Validation @entity {
 type Delegation @entity {
     id: Bytes!
     validationID: Bytes!
+    validationNodeID: Bytes!
     owner: Bytes!
     weight: BigInt!
     status: DelegatorStatus!

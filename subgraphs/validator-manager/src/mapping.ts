@@ -4,6 +4,7 @@ import {
     CompletedValidatorRegistration,
     CompletedValidatorRemoval,
     CompletedValidatorWeightUpdate,
+    RegisteredInitialValidator,
 } from '../generated/ValidatorManager/ValidatorManager'
 import { 
     InitiatedDelegatorRegistration,
@@ -23,7 +24,7 @@ import {
     RegisteredRewards,
     ClaimedRewards
 } from '../generated/schema'
-import { Bytes, BigInt } from '@graphprotocol/graph-ts'
+import { Bytes, BigInt, Address } from '@graphprotocol/graph-ts'
 
 
 export function handleInitiatedValidatorRegistration(event: InitiatedValidatorRegistration): void {
@@ -39,6 +40,17 @@ export function handleInitiatedValidatorRegistration(event: InitiatedValidatorRe
 export function handleCompletedValidatorRegistration(event: CompletedValidatorRegistration): void {
     let entity = getOrCreateValidation(event.params.validationID)
 
+    entity.startedAt = event.block.timestamp.toI64()
+    entity.status = "Active"
+    entity.save()
+}
+
+export function handleRegisteredInitialValidator(event: RegisteredInitialValidator): void {
+    let entity = getOrCreateValidation(event.params.validationID)
+
+    entity.nodeID = event.params.nodeID
+    entity.owner = Address.zero()
+    entity.weight = event.params.weight
     entity.startedAt = event.block.timestamp.toI64()
     entity.status = "Active"
     entity.save()
@@ -69,8 +81,10 @@ export function handleCompletedValidatorWeightUpdate(event: CompletedValidatorWe
 
 export function handleInitiatedDelegatorRegistration(event: InitiatedDelegatorRegistration): void {
     let entity = getOrCreateDelegation(event.params.delegationID)
+    let validation = getOrCreateValidation(event.params.validationID)
 
-    entity.validationID = event.params.validationID
+    entity.validationID = validation.id
+    entity.validationNodeID = validation.nodeID
     entity.owner = event.params.delegatorAddress
     entity.weight = event.params.delegatorWeight
     entity.status = "PendingAdded"
@@ -212,6 +226,7 @@ function getOrCreateDelegation(id: Bytes): Delegation {
     if (entity == null) {
         entity = new Delegation(id)
         entity.validationID = Bytes.empty()
+        entity.validationNodeID = Bytes.empty()
         entity.owner = Bytes.empty()
         entity.weight = BigInt.zero()
         entity.status = "Unknown"
