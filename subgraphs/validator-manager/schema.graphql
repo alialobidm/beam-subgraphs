@@ -26,6 +26,8 @@ type Validation @entity {
     endTime: Timestamp
     tokenIDs: [BigInt!]
     totalTokens: BigInt!
+    initiateRegistrationTx: Bytes
+    completeRegistrationTx: Bytes
 }
 
 type Delegation @entity {
@@ -39,6 +41,8 @@ type Delegation @entity {
     endTime: Timestamp
     # none if the delegation is a regular delegation (not NFT delegation)
     tokenIDs: [BigInt!]
+    initiateRegistrationTx: Bytes
+    completeRegistrationTx: Bytes
 }
 
 type UptimeUpdate @entity {
