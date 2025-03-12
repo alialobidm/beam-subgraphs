@@ -15,7 +15,7 @@ dataSources:
       startBlock: 3697229
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.6
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - Validation
@@ -26,6 +26,7 @@ dataSources:
         - event: InitiatedValidatorRegistration(indexed bytes32,indexed
             bytes20,bytes32,uint64,uint64)
           handler: handleInitiatedValidatorRegistration
+          receipt: true
         - event: InitiatedValidatorRemoval(indexed bytes32,bytes32,uint64,uint64)
           handler: handleInitiatedValidatorRemoval
         - event: RegisteredInitialValidator(indexed bytes32,indexed bytes20,uint64)
@@ -46,7 +47,7 @@ dataSources:
       startBlock: 3697236
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.6
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - Delegation
