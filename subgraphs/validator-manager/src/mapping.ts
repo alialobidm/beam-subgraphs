@@ -44,6 +44,8 @@ export function handleInitiatedValidatorRegistration(event: InitiatedValidatorRe
         }
     }
 
+    entity.totalTokens = BigInt.fromI32(entity.tokenIDs!.length)
+
     entity.save()
 }
 
@@ -115,6 +117,12 @@ export function handleInitiatedDelegatorRemoval(event: InitiatedDelegatorRemoval
     entity.endTime = event.block.timestamp.toI64()
     entity.status = "PendingRemoved"
     entity.save()
+
+    if(entity.tokenIDs != null){
+        let validation = getOrCreateValidation(entity.validationID)
+        validation.totalTokens = validation.totalTokens.minus(BigInt.fromI32(entity.tokenIDs!.length)) 
+        validation.save()
+    }
 }
 
 export function handleCompletedDelegatorRemoval(event: CompletedDelegatorRemoval): void {
@@ -129,6 +137,10 @@ export function handleDelegatedNFTs(event: DelegatedNFTs): void {
 
     entity.tokenIDs = event.params.tokenIDs
     entity.save()
+
+    let validation = getOrCreateValidation(entity.validationID)
+    validation.totalTokens = validation.totalTokens.plus(BigInt.fromI32(event.params.tokenIDs.length))
+    validation.save()
 }
 
 export function handleUptimeUpdated(event: UptimeUpdated): void {
@@ -228,6 +240,7 @@ function getOrCreateValidation(id: Bytes): Validation {
         entity.weight = BigInt.zero()
         entity.status = "Unknown"
         entity.tokenIDs = []
+        entity.totalTokens = BigInt.zero()
     }
     return entity;
 }
