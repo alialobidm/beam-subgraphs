@@ -34,6 +34,7 @@ export function handleInitiatedValidatorRegistration(event: InitiatedValidatorRe
     entity.owner = event.transaction.from
     entity.weight = event.params.weight
     entity.status = "PendingAdded"
+    entity.initiateRegistrationTx = event.transaction.hash
 
     for(let i = 0; i < event.receipt!.logs.length; i++) {
         const eventLog = event.receipt!.logs[i]
@@ -54,6 +55,7 @@ export function handleCompletedValidatorRegistration(event: CompletedValidatorRe
 
     entity.startedAt = event.block.timestamp.toI64()
     entity.status = "Active"
+    entity.completeRegistrationTx = event.transaction.hash
     entity.save()
 }
 
@@ -100,6 +102,7 @@ export function handleInitiatedDelegatorRegistration(event: InitiatedDelegatorRe
     entity.owner = event.params.delegatorAddress
     entity.weight = event.params.delegatorWeight
     entity.status = "PendingAdded"
+    entity.initiateRegistrationTx = event.transaction.hash
     entity.save()
 }
 
@@ -108,6 +111,7 @@ export function handleCompletedDelegatorRegistration(event: CompletedDelegatorRe
 
     entity.startedAt = event.params.startTime.toI64()
     entity.status = "Active"
+    entity.completeRegistrationTx = event.transaction.hash
     entity.save()
 }
 
