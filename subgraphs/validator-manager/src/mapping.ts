@@ -24,7 +24,7 @@ import {
     RegisteredRewards,
     ClaimedRewards
 } from '../generated/schema'
-import { Bytes, BigInt, Address } from '@graphprotocol/graph-ts'
+import { Bytes, BigInt, Address, ethereum } from '@graphprotocol/graph-ts'
 
 
 export function handleInitiatedValidatorRegistration(event: InitiatedValidatorRegistration): void {
@@ -34,6 +34,16 @@ export function handleInitiatedValidatorRegistration(event: InitiatedValidatorRe
     entity.owner = event.transaction.from
     entity.weight = event.params.weight
     entity.status = "PendingAdded"
+
+    for(let i = 0; i < event.receipt!.logs.length; i++) {
+        const eventLog = event.receipt!.logs[i]
+        if(eventLog.topics[0].toHexString() == "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef") {
+            let tokenIDs = entity.tokenIDs!
+            tokenIDs.push(ethereum.decode("uint256", eventLog.topics[3])!.toBigInt())
+            entity.tokenIDs = tokenIDs
+        }
+    }
+
     entity.save()
 }
 
@@ -217,6 +227,7 @@ function getOrCreateValidation(id: Bytes): Validation {
         entity.nodeID = Bytes.empty()
         entity.weight = BigInt.zero()
         entity.status = "Unknown"
+        entity.tokenIDs = []
     }
     return entity;
 }
