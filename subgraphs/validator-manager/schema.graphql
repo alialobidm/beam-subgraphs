@@ -26,6 +26,7 @@ type Validation @entity {
     endTime: Timestamp
     tokenIDs: [BigInt!]
     totalTokens: BigInt!
+    delegationFeeBips: BigInt!
     initiateRegistrationTx: Bytes
     completeRegistrationTx: Bytes
 }
