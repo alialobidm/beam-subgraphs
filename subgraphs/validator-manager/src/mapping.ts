@@ -47,6 +47,15 @@ export function handleInitiatedValidatorRegistration(event: InitiatedValidatorRe
 
     entity.totalTokens = BigInt.fromI32(entity.tokenIDs!.length)
 
+    const inputDataHexString = event.transaction.input.toHexString().slice(10)
+    const hexStringToDecode = '0x0000000000000000000000000000000000000000000000000000000000000020' + inputDataHexString
+    const dataToDecode = Bytes.fromByteArray(Bytes.fromHexString(hexStringToDecode))
+
+    const decoded = ethereum.decode("(bytes,bytes,uint64,(uint32,address[]),(uint32,address[]),uint16,uint64,uint256[])"
+        , dataToDecode);
+
+    entity.delegationFeeBips = decoded!.toTuple()[5].toBigInt()
+
     entity.save()
 }
 
@@ -245,6 +254,7 @@ function getOrCreateValidation(id: Bytes): Validation {
         entity.status = "Unknown"
         entity.tokenIDs = []
         entity.totalTokens = BigInt.zero()
+        entity.delegationFeeBips = BigInt.zero()
     }
     return entity;
 }
