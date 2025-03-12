@@ -25,6 +25,7 @@ type Validation @entity {
     startedAt: Timestamp
     endTime: Timestamp
     tokenIDs: [BigInt!]
+    totalTokens: BigInt!
 }
 
 type Delegation @entity {
