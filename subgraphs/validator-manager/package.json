@@ -8,17 +8,17 @@
     "codegen": "graph codegen --output-dir generated/",
     "build": "graph build --network beam",
     "index": "graph create pos --node https://graph.onbeam.com/admin",
-    "deploy": "graph deploy pos --node https://graph.onbeam.com/admin --ipfs https://ipfs.onbeam.com --network beam",
+    "deploy": "graph deploy pos --node https://graph.onbeam.com/admin --ipfs https://ipfs.onbeam.com --network beam --version-label v0.1.0",
     "all:test": "yarn codegen:test && yarn build:test && yarn index:test && yarn deploy:test",
     "codegen:test": "yarn codegen",
     "build:test": "graph build --network beam-testnet",
     "index:test": "graph create pos-testnet --node https://graph.onbeam.com/admin",
-    "deploy:test": "graph deploy pos-testnet --node https://graph.onbeam.com/admin --ipfs https://ipfs.onbeam.com --network beam-testnet",
+    "deploy:test": "graph deploy pos-testnet --node https://graph.onbeam.com/admin --ipfs https://ipfs.onbeam.com --network beam-testnet --version-label v0.1.0",
     "all:sandbox": "yarn codegen:sandbox && yarn build:sandbox && yarn index:sandbox && yarn deploy:sandbox",
     "codegen:sandbox": "yarn codegen",
     "build:sandbox": "graph build --network sandbox",
     "index:sandbox": "graph create pos-sandbox --node http://161.35.246.70:8020",
-    "deploy:sandbox": "graph deploy pos-sandbox --node http://161.35.246.70:8020 --ipfs http://161.35.246.70:5001 --network sandbox"
+    "deploy:sandbox": "graph deploy pos-sandbox --node http://161.35.246.70:8020 --ipfs http://161.35.246.70:5001 --network sandbox --version-label v0.1.0"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "^0.95.0",

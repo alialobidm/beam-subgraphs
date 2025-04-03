@@ -9,13 +9,13 @@
     "codegen": "yarn prepare; graph codegen --output-dir src/types/",
     "build": "yarn prepare; graph build",
     "index": "yarn prepare; graph create beamswap --node https://graph.onbeam.com/admin",
-    "deploy": "yarn prepare; graph deploy beamswap --node https://graph.onbeam.com/admin --ipfs https://ipfs.onbeam.com",
+    "deploy": "yarn prepare; graph deploy beamswap --node https://graph.onbeam.com/admin --ipfs https://ipfs.onbeam.com --version-label v0.1.0",
     "all:test": "yarn codegen:test && yarn build:test && yarn index:test && yarn deploy:test",
     "prepare:test": "mustache network.beam-testnet.json subgraph.template.yaml > subgraph.yaml; rm -f ./src/configs/config.ts; cp ./src/configs/config.beam-testnet.ts ./src/configs/config.ts",
     "codegen:test": "yarn prepare:test; graph codegen --output-dir src/types/",
     "build:test": "yarn prepare:test; graph build",
     "index:test": "yarn prepare:test; graph create beamswap-testnet --node https://graph.onbeam.com/admin",
-    "deploy:test": "yarn prepare:test; graph deploy beamswap-testnet --node https://graph.onbeam.com/admin --ipfs https://ipfs.onbeam.com"
+    "deploy:test": "yarn prepare:test; graph deploy beamswap-testnet --node https://graph.onbeam.com/admin --ipfs https://ipfs.onbeam.com --version-label v0.1.0"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.20.0",

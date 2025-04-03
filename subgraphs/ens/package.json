@@ -8,12 +8,12 @@
     "codegen": "graph codegen --output-dir src/types/",
     "build": "graph build --network beam",
     "index": "graph create ens --node https://graph.onbeam.com/admin",
-    "deploy": "graph deploy ens --node https://graph.onbeam.com/admin --ipfs https://ipfs.onbeam.com --network beam",
+    "deploy": "graph deploy ens --node https://graph.onbeam.com/admin --ipfs https://ipfs.onbeam.com --network beam --version-label v0.1.0",
     "all:test": "yarn codegen:test && yarn build:test && yarn index:test && yarn deploy:test",
     "codegen:test": "yarn codegen",
     "build:test": "graph build --network beam-testnet",
     "index:test": "graph create ens-testnet --node https://graph.onbeam.com/admin",
-    "deploy:test": "graph deploy ens-testnet --node https://graph.onbeam.com/admin --ipfs https://ipfs.onbeam.com --network beam-testnet"
+    "deploy:test": "graph deploy ens-testnet --node https://graph.onbeam.com/admin --ipfs https://ipfs.onbeam.com --network beam-testnet --version-label v0.1.0"
   },
   "devDependencies": {
     "@ensdomains/content-hash": "^2.5.3",

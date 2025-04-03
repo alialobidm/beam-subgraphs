@@ -9,13 +9,13 @@
     "codegen": "yarn prepare; graph codegen --output-dir src/types/",
     "build": "yarn prepare; graph build",
     "index": "yarn prepare; graph create node-token --node https://graph.onbeam.com/admin",
-    "deploy": "yarn prepare; graph deploy node-token --node https://graph.onbeam.com/admin --ipfs https://ipfs.onbeam.com",
+    "deploy": "yarn prepare; graph deploy node-token --node https://graph.onbeam.com/admin --ipfs https://ipfs.onbeam.com --version-label v0.1.0",
     "all:test": "yarn codegen:test && yarn build:test && yarn index:test && yarn deploy:test",
     "prepare:test": "mustache network/beam-testnet.json subgraph.template.yaml > subgraph.yaml",
     "codegen:test": "yarn prepare:test; graph codegen --output-dir src/types/",
     "build:test": "yarn prepare:test; graph build",
     "index:test": "yarn prepare:test; graph create node-token-testnet --node https://graph.onbeam.com/admin",
-    "deploy:test": "yarn prepare:test; graph deploy node-token-testnet --node https://graph.onbeam.com/admin --ipfs https://ipfs.onbeam.com"
+    "deploy:test": "yarn prepare:test; graph deploy node-token-testnet --node https://graph.onbeam.com/admin --ipfs https://ipfs.onbeam.com --version-label v0.1.0"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.67.1",
