@@ -89,6 +89,7 @@ export function handleInitiatedValidatorRemoval(event: InitiatedValidatorRemoval
 
     entity.endTime = event.params.endTime.toI64()
     entity.status = "PendingRemoved"
+    entity.initiateRemovalTx = event.transaction.hash
     entity.save()
 }
 
@@ -96,6 +97,7 @@ export function handleCompletedValidatorRemoval(event: CompletedValidatorRemoval
     let entity = getOrCreateValidation(event.params.validationID)
 
     entity.status = "Removed"
+    entity.completeRemovalTx = event.transaction.hash
     entity.save()
 }
 
@@ -133,6 +135,7 @@ export function handleInitiatedDelegatorRemoval(event: InitiatedDelegatorRemoval
 
     entity.endTime = event.block.timestamp.toI64()
     entity.status = "PendingRemoved"
+    entity.initiateRemovalTx = event.transaction.hash
 
     if(entity.tokenIDs != null){
         entity.status = "Removed"
@@ -148,6 +151,7 @@ export function handleCompletedDelegatorRemoval(event: CompletedDelegatorRemoval
     let entity = getOrCreateDelegation(event.params.delegationID)
 
     entity.status = "Removed"
+    entity.completeRemovalTx = event.transaction.hash
 
     if(entity.tokenIDs != null){
         entity.unlocked = true;
