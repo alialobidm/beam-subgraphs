@@ -29,6 +29,8 @@ type Validation @entity {
     delegationFeeBips: BigInt!
     initiateRegistrationTx: Bytes
     completeRegistrationTx: Bytes
+    initiateRemovalTx: Bytes
+    completeRemovalTx: Bytes
     unlocked: Boolean!
 }
 
@@ -45,6 +47,8 @@ type Delegation @entity {
     tokenIDs: [BigInt!]
     initiateRegistrationTx: Bytes
     completeRegistrationTx: Bytes
+    initiateRemovalTx: Bytes
+    completeRemovalTx: Bytes
     unlocked: Boolean!
 }
 
