@@ -183,13 +183,9 @@ export function handleUptimeUpdated(event: UptimeUpdated): void {
 }
 
 export function handleRewardResolved(event: RewardResolved): void {
-    let entity = ResolvedReward.load(event.params.delegationID.concatI32(event.params.epoch.toI32()))
-    if (entity == null) {
-        entity = new ResolvedReward(event.params.delegationID.concatI32(event.params.epoch.toI32()))
-    }
+    let entity = getOrCreateDelegation(event.params.delegationID)
+    entity.lastRewardedEpoch = event.params.epoch
 
-    entity.delegationID = event.params.delegationID
-    entity.epoch = event.params.epoch
     entity.save()
 }
 
@@ -318,6 +314,7 @@ function getOrCreateDelegation(id: Bytes): Delegation {
         entity.weight = BigInt.zero()
         entity.status = "Unknown"
         entity.unlocked = false
+        entity.lastRewardedEpoch = BigInt.zero()
     }
     return entity;
 }
