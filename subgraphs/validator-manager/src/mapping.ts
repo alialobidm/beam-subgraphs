@@ -26,7 +26,6 @@ import {
     UptimeUpdate,
     RegisteredReward,
     ClaimedReward,
-    ResolvedReward
 } from '../generated/schema'
 import { Bytes, BigInt, Address, ethereum } from '@graphprotocol/graph-ts'
 
