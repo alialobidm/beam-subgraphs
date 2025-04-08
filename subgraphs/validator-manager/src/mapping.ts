@@ -138,10 +138,6 @@ export function handleInitiatedDelegatorRemoval(event: InitiatedDelegatorRemoval
 
     if(entity.tokenIDs != null){
         entity.status = "Removed"
-
-        let validation = getOrCreateValidation(entity.validationID)
-        validation.totalTokens = validation.totalTokens.minus(BigInt.fromI32(entity.tokenIDs!.length)) 
-        validation.save()
     }
     entity.save()
 }
@@ -153,6 +149,10 @@ export function handleCompletedDelegatorRemoval(event: CompletedDelegatorRemoval
     entity.completeRemovalTx = event.transaction.hash
 
     if(entity.tokenIDs != null){
+        let validation = getOrCreateValidation(entity.validationID)
+        validation.totalTokens = validation.totalTokens.minus(BigInt.fromI32(entity.tokenIDs!.length))
+        validation.save()
+
         entity.unlocked = true;
     }
     entity.save()
