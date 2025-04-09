@@ -50,18 +50,13 @@ type Delegation @entity {
     initiateRemovalTx: Bytes
     completeRemovalTx: Bytes
     unlocked: Boolean!
+    lastRewardedEpoch: BigInt!
 }
 
 type UptimeUpdate @entity {
     id: Bytes!
     validationID: Bytes!
     uptimeSeconds: BigInt!
-    epoch: BigInt!
-}
-
-type ResolvedReward @entity {
-    id: Bytes!
-    delegationID: Bytes!
     epoch: BigInt!
 }
 
