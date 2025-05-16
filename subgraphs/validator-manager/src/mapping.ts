@@ -36,6 +36,7 @@ export function handleInitiatedValidatorRegistration(event: InitiatedValidatorRe
     entity.nodeID = event.params.nodeID
     entity.owner = event.transaction.from
     entity.weight = event.params.weight
+    entity.inititalWeight = event.params.weight
     entity.status = "PendingAdded"
     entity.initiateRegistrationTx = event.transaction.hash
 

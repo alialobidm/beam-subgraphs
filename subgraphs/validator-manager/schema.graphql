@@ -32,6 +32,7 @@ type Validation @entity {
     initiateRemovalTx: Bytes
     completeRemovalTx: Bytes
     unlocked: Boolean!
+    inititalWeight: BigInt!
 }
 
 type Delegation @entity {
