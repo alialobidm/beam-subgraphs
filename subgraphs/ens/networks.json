@@ -30,31 +30,32 @@
   },
   "beam-testnet": {
     "ENSRegistry": {
-      "address": "0x0000000000000000000000000000000000000001",
-      "startBlock": 1
+      "address": "0x688889c59EA2bc07ecA840b0D78a4aF042c83096",
+      "startBlock": 1334988
     },
     "ENSRegistryOld": {
       "address": "0x0000000000000000000000000000000000000B0b",
       "startBlock": 1
     },
     "Resolver": {
-      "startBlock": 1
+      "addrress": "0x310B595EB6d4356a8B0A61b41D5169B19e1Ee440",
+      "startBlock": 1335022
     },
     "BaseRegistrar": {
-      "address": "0x0000000000000000000000000000000000000001",
-      "startBlock": 1
+      "address": "0x991a162B01bdCe23c243c982a3F53D77926e0c80",
+      "startBlock": 1334990
     },
     "EthRegistrarController": {
-      "address": "0x0000000000000000000000000000000000000001",
-      "startBlock": 1
+      "address": "0x70BBdBd50894d34B7952B8fa5E96244F86d3EFae",
+      "startBlock":	1335014
     },
     "EthRegistrarControllerOld": {
       "address": "0x000000000000000000000000000000000000bEEF",
       "startBlock": 1
     },
     "NameWrapper": {
-      "address": "0x0000000000000000000000000000000000000001",
-      "startBlock": 1
+      "address": "0x204E73bA5864D0c62467999e9F4E841cB2d0fCAc",
+      "startBlock":	1335005
     }
   },
   "mainnet": {
