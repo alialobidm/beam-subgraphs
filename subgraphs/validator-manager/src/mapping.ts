@@ -205,13 +205,13 @@ export function handleUnlockedValidation(event: UnlockedValidation): void {
 export function handleRewardClaimed(event: RewardClaimed): void {
     let entity = getOrCreateClaimedReward(
         event.params.account
-        .concatI32(event.params.epoch.toI32())
-        .concatI32(event.params.primary ? 1 : 0)
+        .concatI32(event.block.timestamp)
     )
 
     entity.epoch = event.params.epoch
     entity.primary = event.params.primary
     entity.account = event.params.account
+    entity.timestamp = event.block.timestamp
 
     var present = false
     for(var i=0; i<entity.tokens!.length; i++){

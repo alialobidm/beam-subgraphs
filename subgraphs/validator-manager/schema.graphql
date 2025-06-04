@@ -76,4 +76,5 @@ type ClaimedReward @entity {
     account: Bytes!
     tokens: [Bytes!]
     amounts: [BigInt!]
+    timestamp: BigInt!
 }
