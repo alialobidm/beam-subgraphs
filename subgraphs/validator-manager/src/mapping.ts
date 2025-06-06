@@ -36,6 +36,7 @@ export function handleInitiatedValidatorRegistration(event: InitiatedValidatorRe
     entity.nodeID = event.params.nodeID
     entity.owner = event.transaction.from
     entity.weight = event.params.weight
+    entity.initialWeight = event.params.weight
     entity.status = "PendingAdded"
     entity.initiateRegistrationTx = event.transaction.hash
 
@@ -291,6 +292,7 @@ function getOrCreateValidation(id: Bytes): Validation {
         entity.totalTokens = BigInt.zero()
         entity.delegationFeeBips = BigInt.zero()
         entity.unlocked = false
+        entity.initialWeight = BigInt.zero()
     }
     return entity;
 }
