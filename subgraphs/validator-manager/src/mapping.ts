@@ -240,7 +240,7 @@ export function handleUnlockedValidation(event: UnlockedValidation): void {
 
 export function handleRewardClaimed(event: RewardClaimed): void {
   let entity = getOrCreateClaimedReward(
-    event.params.account.concatI32(event.block.timestamp)
+    event.params.account.concatI32(event.block.timestamp.toI32())
   );
 
   entity.epoch = event.params.epoch;
@@ -314,7 +314,7 @@ export function handleRewardCancelled(event: RewardCancelled): void {
   entity.save();
 }
 
-// helper funcfions
+// helper functions
 function getOrCreateValidation(id: Bytes): Validation {
   let entity = Validation.load(id);
   if (entity == null) {
