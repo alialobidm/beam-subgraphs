@@ -68,7 +68,9 @@ export function handleInitiatedValidatorRegistration(
     dataToDecode
   );
 
-  entity.delegationFeeBips = decoded!.toTuple()[5].toBigInt();
+  entity.delegationFeeBips = decoded
+    ? decoded.toTuple()[5].toBigInt()
+    : new BigInt(10000);
 
   entity.save();
 }
